@@ -8,10 +8,16 @@
 
   <div class="row">
     <div class="col-sm-12">
-
       <h2>{{ object.username }}</h2>
       {% if object.name %}
         <p>{{ object.name }}</p>
+      {% endif %}
+        {% if object.bio %}
+        <!--
+             1. The "|" or "pipe" in a template signifies to Django that the next word is a "filter". Filters are used to modify variables in Django templates.
+             2. The "linebreaksbr" filter modifies text to replace every carriage return with the HTML <br> tag in the page being rendered.
+        -->
+        <p>{{ object.bio | linebreaksbr }}</p>
       {% endif %}
     </div>
   </div>
