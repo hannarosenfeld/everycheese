@@ -4,12 +4,14 @@ pytestmark = pytest.mark.django_db
 
 from ..models import Cheese
 
-def test__str__():
-    cheese = Cheese.objects.create(
-        name="Stracchino",
-        description="Semi-sweet cheese eating with starches",
-        firmness=Cheese.Firmness.SOFT,
-    )
+from .factories import CheeseFactory
 
-    assert.cheese.__str__() == "Stracchino"
-    assert str(cheese) == "Stracchino"
+
+
+def test__str__():
+    cheese = CheeseFactory()
+    assert cheese.__str__() == cheese.name
+    assert str(cheese) == cheese.name
+
+
+    
